@@ -1,8 +1,6 @@
 import "./index.css";
 import AxiosInstance from "./AxiosInstance.jsx";
 import { useState, useEffect } from "react";
-import { Avatar } from "@mui/material";
-
 export default function ProfileData(props) {
   const { size, small_size } = props;
   const [myData, setMyData] = useState();

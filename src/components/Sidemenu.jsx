@@ -1,17 +1,20 @@
 import "./index.css";
 import AxiosInstance from "./AxiosInstance.jsx";
 import { useState, useEffect } from "react";
-import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Avatar from "@mui/material/Avatar";
 import MuiDrawer, { drawerClasses } from "@mui/material/Drawer";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
 import MenuContent from "./forms/MenuContent";
 import OptionsMenu from "./OptionsMenu";
 import ProfileData from "./ProfileData.jsx";
+
+const isDevelopment = import.meta.env.MODE === "development";
+const baseURL = isDevelopment
+  ? import.meta.env.VITE_API_BASE_URL_LOCAL
+  : import.meta.env.VITE_API_BASE_URL_DEPLOY;
 
 const drawerWidth = 240;
 
@@ -51,7 +54,7 @@ export default function Sidemenu() {
           display: { xs: "none", md: "block" },
           [`& .${drawerClasses.paper}`]: {
             backgroundColor: "background.paper",
-            width: "15vw", // Optional: you can control drawer width here
+            width: "10vw", // Optional: you can control drawer width here
           },
         }}
       >
@@ -83,7 +86,7 @@ export default function Sidemenu() {
             <Avatar
               key={index}
               alt="Riley Carter"
-              src={`http://localhost:8000${item.image}`}
+              src={`${baseURL}${item.image}`}
               sx={{ width: "3vw", height: "10vh" }}
             />
           ))}

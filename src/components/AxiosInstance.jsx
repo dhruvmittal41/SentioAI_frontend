@@ -39,12 +39,3 @@ AxiosInstance.interceptors.response.use(
 );
 
 export default AxiosInstance;
-
-export async function generateReply(data) {
-  const res = await fetch("http://localhost:8000/api/sarcasm/generate/", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  });
-  return res.json();
-}

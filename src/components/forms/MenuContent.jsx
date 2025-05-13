@@ -38,7 +38,7 @@ export default function MenuContent() {
           <ListItem key={index} disablePadding sx={{ display: "block" }}>
             <ListItemButton
               component={item.text === "Home" ? Link : "button"}
-              to={item.text === "Home" ? "/home/homepage" : undefined}
+              to={item.text === "Home" ? "/home/homepage" : ""}
               onClick={handleclick}
               selected={index === 0}
             >
