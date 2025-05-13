@@ -1,6 +1,6 @@
 import Hero from "./components/Hero";
 import Register from "./components/Register";
-import Login from "./components/login";
+import Login from "./components/Login";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import ProtectedRoute from "./components/ProtectedRoutes";
