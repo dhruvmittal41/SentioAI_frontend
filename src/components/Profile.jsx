@@ -50,34 +50,39 @@ const Profile = () => {
   return (
     <div className="flex">
       <SideMenu />
-      <div className="flex w-[100%]">
-        <div className="flex  gap-8 w-[100%]">
-          <div className="p-5 self-center relative">
-            {myData?.map((item) => (
-              <div>
-                <Avatar
-                  alt="Riley Carter"
-                  src={"http://localhost:8000" + item.image}
-                  sx={{ width: "15vw", height: "30vh" }}
-                />
-              </div>
+      <div className="flex w-full">
+        <div className="flex gap-8 w-full p-5">
+          {/* Avatar Upload Section */}
+          <div className="relative flex flex-col items-center">
+            {myData?.map((item, index) => (
+              <Avatar
+                key={index}
+                alt="Riley Carter"
+                src={`http://localhost:8000${item.image}`}
+                sx={{ width: "15vw", height: "30vh" }}
+              />
             ))}
+
+            {/* Upload Button */}
             <button
               onClick={handleSubmit}
-              className=" z-10  absolute left-[12vw] bottom-6 flex rounded-[100%] bg-green-400 w-10 h-10 items-center justify-center text-white text-[30px]"
+              className="absolute left-[12vw] bottom-6 z-10 flex rounded-full bg-green-500 w-10 h-10 items-center justify-center text-white text-2xl shadow-lg hover:bg-green-600 transition"
             >
               +
             </button>
-            <br />
+
+            {/* File Input (Hidden visually but accessible via button) */}
             <input
-              accept="image/*"
               type="file"
-              className="absolute"
+              accept="image/*"
+              className="absolute opacity-0 cursor-pointer w-full h-full top-0 left-0"
               onChange={handleChange}
               name="image"
             />
           </div>
-          <div className="flex-col ml-[150px]  w-[100%] self-center">
+
+          {/* Profile Data Section */}
+          <div className="flex flex-col justify-center w-full ml-[150px]">
             <ProfileData size="5vw" small_size="1vw" />
           </div>
         </div>

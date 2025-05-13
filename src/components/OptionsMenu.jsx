@@ -46,6 +46,7 @@ export default function OptionsMenu() {
       >
         <MoreVertRoundedIcon />
       </MenuButton>
+
       <Menu
         anchorEl={anchorEl}
         id="menu"
@@ -56,18 +57,23 @@ export default function OptionsMenu() {
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
         sx={{
           [`& .${listClasses.root}`]: {
-            padding: "4px",
+            padding: 0.5,
           },
           [`& .${paperClasses.root}`]: {
             padding: 0,
+            minWidth: 160,
           },
           [`& .${dividerClasses.root}`]: {
-            margin: "4px -4px",
+            margin: "4px 0",
           },
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
+        <MenuItem onClick={handleClose}>
+          <ListItemText>Profile</ListItemText>
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <ListItemText>My Account</ListItemText>
+        </MenuItem>
         <MenuItem onClick={logoutUser}>
           <ListItemText>Logout</ListItemText>
           <ListItemIcon>

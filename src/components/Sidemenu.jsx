@@ -45,53 +45,56 @@ export default function Sidemenu() {
   }, []);
   return (
     <div className="flex">
-      <div>
-        <Drawer
-          variant="permanent"
+      <Drawer
+        variant="permanent"
+        sx={{
+          display: { xs: "none", md: "block" },
+          [`& .${drawerClasses.paper}`]: {
+            backgroundColor: "background.paper",
+            width: "15vw", // Optional: you can control drawer width here
+          },
+        }}
+      >
+        <Divider />
+
+        <Box
           sx={{
-            display: { xs: "none", md: "block" },
-            [`& .${drawerClasses.paper}`]: {
-              backgroundColor: "background.paper",
-            },
+            overflowY: "auto",
+            flexGrow: 1,
+            display: "flex",
+            flexDirection: "column",
+            height: "100%",
           }}
         >
-          <Divider />
-          <Box
-            sx={{
-              overflow: "auto",
-              height: "100%",
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <MenuContent />
+          <MenuContent />
+        </Box>
+
+        <Stack
+          direction="row"
+          sx={{
+            p: 2,
+            gap: 1,
+            alignItems: "center",
+            borderTop: "1px solid",
+            borderColor: "divider",
+          }}
+        >
+          {myData?.map((item, index) => (
+            <Avatar
+              key={index}
+              alt="Riley Carter"
+              src={`http://localhost:8000${item.image}`}
+              sx={{ width: "3vw", height: "10vh" }}
+            />
+          ))}
+
+          <Box sx={{ ml: 1, mr: "auto" }}>
+            <ProfileData small_size="0.8vw" />
           </Box>
-          <Stack
-            direction="row"
-            sx={{
-              p: 2,
-              gap: 1,
-              alignItems: "center",
-              borderTop: "1px solid",
-              borderColor: "divider",
-            }}
-          >
-            {myData?.map((item) => (
-              <div>
-                <Avatar
-                  alt="Riley Carter"
-                  src={"http://localhost:8000" + item.image}
-                  sx={{ width: "3vw", height: "10vh" }}
-                />
-              </div>
-            ))}
-            <Box sx={{ mr: "auto" }}>
-              <ProfileData small_size="0.8vw" />
-            </Box>
-            <OptionsMenu />
-          </Stack>
-        </Drawer>
-      </div>
+
+          <OptionsMenu />
+        </Stack>
+      </Drawer>
     </div>
   );
 }
