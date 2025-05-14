@@ -22,7 +22,7 @@ const Drawer = styled(MuiDrawer)({
 export default function Home() {
   return (
     <>
-      <Sidemenu />
+      <h1>This is the HomePage.</h1>
     </>
   );
 }
