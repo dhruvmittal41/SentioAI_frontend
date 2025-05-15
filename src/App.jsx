@@ -1,7 +1,7 @@
 import Hero from "./components/Hero";
 import Register from "./components/Register";
 import Login from "./components/Login";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Home from "./components/Home";
 import ProtectedRoute from "./components/ProtectedRoutes";
 import PasswordResetRequest from "./components/PasswordResetRequest";
@@ -10,7 +10,7 @@ import Profile from "./components/Profile";
 import Homepage from "./components/Homepage";
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Hero />} />
         <Route path="/login" element={<Login />} />
@@ -27,7 +27,7 @@ function App() {
           <Route path="/home/profile" element={<Profile />} />
         </Route>
       </Routes>
-    </>
+    </BrowserRouter>
   );
 }
 
