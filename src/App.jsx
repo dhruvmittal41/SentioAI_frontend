@@ -24,7 +24,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/home/homepage" element={<Homepage />} />
           <Route path="/home/profile" element={<Profile />} />
-          <Route path="/password-reset/:token" element={<PasswordReset />} />
+          <Route path="/password-reset/token" element={<PasswordReset />} />
         </Route>
       </Routes>
     </>
