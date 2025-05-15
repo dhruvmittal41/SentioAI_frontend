@@ -19,12 +19,12 @@ function App() {
           path="/request/password_reset"
           element={<PasswordResetRequest />}
         />
-        <Route path="/password-reset/:token" element={<PasswordReset />} />
 
         <Route element={<ProtectedRoute />}>
           <Route path="/home" element={<Home />} />
           <Route path="/home/homepage" element={<Homepage />} />
           <Route path="/home/profile" element={<Profile />} />
+          <Route path="/password-reset/:token" element={<PasswordReset />} />
         </Route>
       </Routes>
     </>
