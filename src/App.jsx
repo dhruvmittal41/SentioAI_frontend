@@ -20,6 +20,7 @@ function App() {
           element={<PasswordResetRequest />}
         />
         <Route path="/password-reset/:token" element={<PasswordReset />} />
+        <Route path="/test-route" element={<div>It works!</div>} />
 
         <Route element={<ProtectedRoute />}>
           <Route path="/home" element={<Home />} />
